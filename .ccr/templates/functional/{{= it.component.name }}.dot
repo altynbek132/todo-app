@@ -1,0 +1,15 @@
+{{? it.settings.css }}import './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
+
+import React from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+const {{= it.component.name}} = ({}) => {
+  return (<div></div>);
+}
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)({{= it.component.name}});

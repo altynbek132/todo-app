@@ -1,0 +1,2 @@
+import {{= it.component.name}} from './{{= it.component.name}}.js';
+export default {{= it.component.name}};

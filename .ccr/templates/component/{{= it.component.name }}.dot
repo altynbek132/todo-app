@@ -1,0 +1,33 @@
+{{? it.settings.css }}import './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
+
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+class {{= it.component.name}} extends Component {
+  // static propTypes = {}
+  // static defaultProps = {}
+
+  // state = {}
+
+  // componentWillMount(){}
+  // componentDidMount(){}
+  // componentWillUnmount(){}
+
+  // componentWillReceiveProps(){}
+  // shouldComponentUpdate(){}
+  // componentWillUpdate(){}
+  // componentDidUpdate(){}
+
+  render() {
+    return (
+      <div>{{= it.component.name}}</div>
+    );
+  }
+}
+
+const mapStateToProps = (state) => ({});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)({{= it.component.name}});
