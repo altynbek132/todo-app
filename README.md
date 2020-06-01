@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Use
+
+    git clone https://github.com/altynbek132/react-template.git react-project && cd react-project && yarn && yarn start
+
 ## Install and run:
 
     yarn && yarn start
