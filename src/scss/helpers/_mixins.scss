@@ -1,0 +1,27 @@
+
+@mixin font-main {
+  font-family: 'Montserrat', sans-serif;
+}
+
+@mixin font-ss {
+  font-family: 'Lato', sans-serif;
+}
+
+@mixin font-nav {
+  font-family: 'PT Sans', sans-serif;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin center-abs {
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+@mixin anim {
+  transition: 0.2s;
+}

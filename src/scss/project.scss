@@ -1,0 +1,15 @@
+.btn-buy {
+  padding: 15px;
+  background-color: rgb(71, 71, 255);
+  border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  transition: 0.2s;
+
+  &:hover {
+    color: white;
+    background-color: rgb(37, 37, 255);
+  }
+}
+
+// ------
