@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Use
 
-    git clone https://github.com/altynbek132/react-template.git react-project && cd react-project && yarn && yarn start
+    git clone https://github.com/altynbek132/react-template.git react-project && cd react-project && yarn && yarn start && git remote rm origin
 
 ## Install and run:
 
