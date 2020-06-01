@@ -5,8 +5,12 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const {{= it.component.name}} = ({}) => {
-  return (<div></div>);
+  return (<div>{{= it.component.name}}</div>);
 }
+
+{{= it.component.name}}.propTypes = {};
+
+{{= it.component.name}}.defaultProps = {};
 
 const mapStateToProps = (state) => ({});
 

@@ -5,8 +5,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const App = ({}) => {
-  return (<div></div>);
-}
+  return <div>App</div>;
+};
 
 const mapStateToProps = (state) => ({});
 

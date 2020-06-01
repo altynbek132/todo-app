@@ -10,7 +10,7 @@ or
 
 ## Aliases for bash
 
-snippet to create component:
+snippet to create component, add to .bashrc file:
 
     alias cmp="npx ccr create"
 
