@@ -12,7 +12,7 @@ const {{= it.component.name}} = ({}) => {
 
 {{= it.component.name}}.defaultProps = {};
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = ({}) => ({});
 
 const mapDispatchToProps = {};
 
