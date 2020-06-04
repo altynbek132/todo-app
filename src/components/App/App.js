@@ -1,14 +1,14 @@
-import './App.scss';
+import cls from './App.scss';
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const App = ({}) => {
-  return <div>App</div>;
+  return <div className={cls['App']}>App</div>;
 };
 
-const mapStateToProps = (state) => ({});
+const mapStateToProps = ({}) => ({});
 
 const mapDispatchToProps = {};
 

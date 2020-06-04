@@ -1,4 +1,4 @@
-{{? it.settings.css }}import './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
+{{? it.settings.css }}import cls from './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
 
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
@@ -21,7 +21,7 @@ class {{= it.component.name}} extends Component {
 
   render() {
     return (
-      <div>{{= it.component.name}}</div>
+      <div className={cls['{{= it.component.name}}']}>{{= it.component.name}}</div>
     );
   }
 }

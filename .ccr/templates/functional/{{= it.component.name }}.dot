@@ -1,11 +1,11 @@
-{{? it.settings.css }}import './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
+{{? it.settings.css }}import cls from './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
 
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
 const {{= it.component.name}} = ({}) => {
-  return (<div>{{= it.component.name}}</div>);
+  return (<div className={cls['{{= it.component.name}}']}>{{= it.component.name}}</div>);
 }
 
 {{= it.component.name}}.propTypes = {};
