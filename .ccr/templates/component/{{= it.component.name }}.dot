@@ -1,8 +1,11 @@
-{{? it.settings.css }}import cls from './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
+{{? it.settings.css }}import styles from './{{= it.component.name }}.{{= it.settings.cssType || 'css'}}';{{?}}
 
+import classNames from 'classnames/bind';
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+
+const cx = classNames.bind(styles);
 
 class {{= it.component.name}} extends Component {
   // static propTypes = {}
@@ -21,7 +24,7 @@ class {{= it.component.name}} extends Component {
 
   render() {
     return (
-      <div className={cls['{{= it.component.name}}']}>{{= it.component.name}}</div>
+      <div className={cx('{{= it.component.name}}')}>{{= it.component.name}}</div>
     );
   }
 }
