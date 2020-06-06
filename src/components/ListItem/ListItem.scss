@@ -1,0 +1,17 @@
+.ListItem {
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: white;
+  }
+}
+
+.circle {
+  margin-right: 10px;
+}
+
+.text {
+  font-size: 20px;
+}

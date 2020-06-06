@@ -1,2 +1,26 @@
 .App {
+  display: flex;
+  min-height: 100vh;
+}
+
+.nav {
+  flex: 0 0 34%;
+  position: relative;
+}
+
+.nav-inner {
+  height: 100%;
+  padding: 50px 25px;
+
+  position: fixed;
+  background-color: #f4f6f8;
+
+  top: 0;
+  left: 0;
+
+  overflow-y: scroll;
+}
+
+.todo {
+  flex: 0 0 auto;
 }

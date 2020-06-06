@@ -1,0 +1,66 @@
+.NewFolder {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  padding: 30px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  border-radius: 10px;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+}
+
+.close-button {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.close-icon {
+  padding: 8px;
+  background: #5c5c5c;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  transition: 0.2s;
+  box-shadow: 0px 6px 10px rgba(0, 0, 0, 0.05);
+
+  svg {
+    width: 15px;
+    height: 15px;
+    fill: white;
+  }
+
+  &:hover {
+    background: #363636;
+  }
+}
+
+.input {
+  margin-bottom: 15px;
+}
+
+.colorpane {
+  margin-bottom: 15px;
+}
+
+.add-button-wrap {
+}
+
+.add-button {
+  font-size: 16px;
+  text-align: center;
+  color: #ffffff;
+  width: 100%;
+
+  background: #4dd599;
+  border-radius: 5px;
+  padding: 15px;
+  transition: 0.2s;
+
+  &:hover {
+    background: #2faa75;
+  }
+}

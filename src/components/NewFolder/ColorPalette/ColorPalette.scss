@@ -1,0 +1,40 @@
+.ColorPalette {
+  display: flex;
+  justify-content: space-between;
+}
+
+.color-btn {
+  padding: 10px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  transition: 0.2s;
+
+  &:hover {
+    border: 2px solid #525252;
+  }
+}
+
+.btn {
+  display: flex;
+}
+
+.color-btn-custom {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 0, 0, 1) 0%,
+    rgba(255, 250, 0, 1) 16%,
+    rgba(0, 255, 24, 1) 33%,
+    rgba(0, 255, 251, 1) 50%,
+    rgba(19, 0, 255, 1) 67%,
+    rgba(255, 0, 229, 1) 84%,
+    rgba(255, 0, 0, 1) 100%
+  );
+  opacity: 0.8;
+}
+
+.color-palette {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  transform: translateX(110%);
+}

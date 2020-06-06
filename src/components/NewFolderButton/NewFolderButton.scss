@@ -1,0 +1,24 @@
+.NewFolderButton {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.icon {
+  margin-right: 10px;
+  display: inline-flex;
+  align-items: center;
+
+  svg {
+    width: 15px;
+    height: 15px;
+
+    fill: #7c7c7c;
+  }
+}
+
+.text-input {
+  margin-left: 10px;
+  font-size: 18px;
+  background-color: transparent;
+}

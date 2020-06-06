@@ -1,0 +1,42 @@
+.Header {
+  font-size: 32px;
+  color: #64c4ed;
+  position: relative;
+  margin-bottom: 55px;
+  display: flex;
+  align-items: center;
+
+  &:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    left: 0;
+    bottom: -20px;
+
+    background: #f2f2f2;
+  }
+}
+
+.text {
+  margin-right: 15px;
+}
+
+.edit-icon {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  opacity: 0;
+  transition: 0.2s;
+  pointer-events: none;
+  svg {
+    fill: #dfdfdf;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.visible {
+  opacity: 1;
+  pointer-events: all;
+}
