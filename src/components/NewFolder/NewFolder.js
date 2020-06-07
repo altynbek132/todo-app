@@ -1,7 +1,7 @@
 import styles from './NewFolder.scss';
 
 import classNames from 'classnames/bind';
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Button from '../Button';
@@ -50,17 +50,33 @@ const NewFolder = ({
   newColor,
   closeColorPalette,
   addFolder,
+  modalActive,
   resetNewFolderInput,
 }) => {
   const inputRef = useRef(null);
   if (inputRef.current) inputRef.current.focus();
+
+  const node = useRef(null);
+  const handleClickOutside = (e) => {
+    if (node.current.contains(e.target)) return;
+    resetNewFolderInput();
+  };
+  useEffect(() => {
+    if (modalActive) document.addEventListener('mousedown', handleClickOutside);
+    else document.removeEventListener('mousedown', handleClickOutside);
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, [modalActive]);
+
   return (
-    <div className={cx('NewFolder')}>
+    <div className={cx('NewFolder')} ref={node}>
       <div className={cx('close-button')}>
         <Button
           onClick={() => {
             closeModal();
             resetNewFolderInput();
+            console.log(' - close');
           }}
         >
           <span className={cx('close-icon')}>{closeIcon}</span>
@@ -85,6 +101,7 @@ const NewFolder = ({
       <div className={cx('add-button-wrap')}>
         <Button
           onClick={() => {
+            if (newName.trim() === '') return;
             addFolder(newName, newColor);
             resetNewFolderInput();
           }}
@@ -100,9 +117,10 @@ NewFolder.propTypes = {};
 
 NewFolder.defaultProps = {};
 
-const mapStateToProps = ({ newFolder: { name: newName, color: newColor } }) => ({
+const mapStateToProps = ({ newFolder: { name: newName, color: newColor, modalActive } }) => ({
   newName,
   newColor,
+  modalActive,
 });
 
 const mapDispatchToProps = {

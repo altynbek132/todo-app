@@ -5,20 +5,23 @@
 
 .nav {
   flex: 0 0 34%;
+  max-width: 310px;
   position: relative;
 }
 
 .nav-inner {
   height: 100%;
   padding: 50px 25px;
+  width: 100%;
 
-  position: fixed;
+  position: absolute;
   background-color: #f4f6f8;
 
   top: 0;
   left: 0;
 
-  overflow-y: scroll;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .todo {

@@ -7,9 +7,9 @@ import { connect } from 'react-redux';
 
 const cx = classNames.bind(styles);
 
-const Button = ({ children, onClick }) => {
+const Button = ({ children, onClick, ...props }) => {
   return (
-    <button className={cx('Button')} onClick={onClick}>
+    <button className={cx('Button')} {...props} onClick={onClick}>
       {children}
     </button>
   );
