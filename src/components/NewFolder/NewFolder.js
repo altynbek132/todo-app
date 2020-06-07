@@ -1,12 +1,19 @@
 import styles from './NewFolder.scss';
 
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import Input from '../Input/Input';
 import Button from '../Button';
 import ColorPalette from './ColorPalette';
+import {
+  closeModal,
+  setNewFolderName,
+  setNewFolderColor,
+  closeColorPalette,
+  resetNewFolderInput,
+} from '../../store/actions/newFolder';
+import { addFolder } from '../../store/actions/tasks';
 
 const cx = classNames.bind(styles);
 
@@ -35,26 +42,53 @@ const closeIcon = (
   </svg>
 );
 
-const NewFolder = ({}) => {
-  const colors = ['#42B883', '#64C4ED', '#FFBBCC', '#B6E6BD', '#C355F5', '#09011A', '#FF6464'];
+const NewFolder = ({
+  closeModal,
+  setNewFolderName,
+  setNewFolderColor,
+  newName,
+  newColor,
+  closeColorPalette,
+  addFolder,
+  resetNewFolderInput,
+}) => {
+  const inputRef = useRef(null);
+  if (inputRef.current) inputRef.current.focus();
   return (
     <div className={cx('NewFolder')}>
       <div className={cx('close-button')}>
-        <Button>
+        <Button
+          onClick={() => {
+            closeModal();
+            resetNewFolderInput();
+          }}
+        >
           <span className={cx('close-icon')}>{closeIcon}</span>
         </Button>
       </div>
 
-      <div className={cx('input')}>
-        <Input placeholder="inpur name of folder" />
+      <div className={cx('input-wrap')}>
+        <input
+          className={cx('input')}
+          ref={inputRef}
+          onChange={({ target: { value } }) => setNewFolderName(value)}
+          value={newName}
+          type="text"
+          placeholder="input name of folder"
+        />
       </div>
 
       <div className={cx('colorpane')}>
-        <ColorPalette colors={colors} />
+        <ColorPalette />
       </div>
 
       <div className={cx('add-button-wrap')}>
-        <Button>
+        <Button
+          onClick={() => {
+            addFolder(newName, newColor);
+            resetNewFolderInput();
+          }}
+        >
           <span className={cx('add-button')}>Add new folder</span>
         </Button>
       </div>
@@ -66,8 +100,18 @@ NewFolder.propTypes = {};
 
 NewFolder.defaultProps = {};
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({ newFolder: { name: newName, color: newColor } }) => ({
+  newName,
+  newColor,
+});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  closeModal,
+  setNewFolderName,
+  setNewFolderColor,
+  closeColorPalette,
+  addFolder,
+  resetNewFolderInput,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewFolder);

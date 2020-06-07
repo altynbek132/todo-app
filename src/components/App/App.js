@@ -10,7 +10,7 @@ import NewFolder from '../NewFolder/NewFolder';
 
 const cx = classNames.bind(styles);
 
-const App = ({}) => {
+const App = ({ modalActive }) => {
   return (
     <div className={cx('App')}>
       <nav className={cx('nav')}>
@@ -22,12 +22,12 @@ const App = ({}) => {
         <Todo />
       </div>
 
-      {/* <NewFolder /> */}
+      {modalActive && <NewFolder />}
     </div>
   );
 };
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({ newFolder: { modalActive } }) => ({ modalActive });
 
 const mapDispatchToProps = {};
 

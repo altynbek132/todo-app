@@ -17,14 +17,14 @@ const deleteIcon = (
   </svg>
 );
 
-const TaskItem = ({ task }) => {
+const TaskItem = ({ task, toggleTaskFinished, onRemoveTask }) => {
   const { id, folderId, text, isFinished } = task;
   const [hover, setHover] = useState(false);
 
   return (
     <div className={cx('TaskItem')}>
       <span className={cx('check')}>
-        <CheckFinished checked={isFinished} />
+        <CheckFinished checked={isFinished} onClick={toggleTaskFinished} />
       </span>
 
       <div
@@ -33,7 +33,9 @@ const TaskItem = ({ task }) => {
         onMouseLeave={() => setHover(false)}
       >
         <span className={cx('text', { cross: isFinished })}>{text}</span>
-        <button className={cx('delete-icon', { visible: hover })}>{deleteIcon}</button>
+        <button onClick={onRemoveTask} className={cx('delete-icon', { visible: hover })}>
+          {deleteIcon}
+        </button>
       </div>
     </div>
   );

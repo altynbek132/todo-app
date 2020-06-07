@@ -4,15 +4,14 @@ import classNames from 'classnames/bind';
 import React from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ListItem from '../ListItem';
 import Button from '../Button';
+import { selectFolder } from '../../store/actions/tasks';
 
 const cx = classNames.bind(styles);
 
 const icon = (
   <svg
     id="Layer_1"
-    enable-background="new 0 0 512 512"
     height="512"
     viewBox="0 0 512 512"
     width="512"
@@ -24,15 +23,13 @@ const icon = (
   </svg>
 );
 
-const AllTasksButton = ({}) => {
+const AllTasksButton = ({ onSelect, isActive }) => {
   return (
-    <div className={cx('AllTasksButton')}>
-      <ListItem>
-        <Button>
-          <span className={cx('icon')}>{icon}</span>
-          <span className={cx('text')}>Show all tasks</span>
-        </Button>
-      </ListItem>
+    <div className={cx('AllTasksButton', { active: isActive })}>
+      <button className={cx('btn')} onClick={() => onSelect()}>
+        <span className={cx('icon')}>{icon}</span>
+        <span className={cx('text')}>Show all tasks</span>
+      </button>
     </div>
   );
 };
@@ -41,8 +38,8 @@ AllTasksButton.propTypes = {};
 
 AllTasksButton.defaultProps = {};
 
-const mapStateToProps = ({}) => ({});
+const mapStateToProps = ({ tasks: { selectedFolderId } }) => ({ id: selectedFolderId });
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { selectFolder };
 
 export default connect(mapStateToProps, mapDispatchToProps)(AllTasksButton);

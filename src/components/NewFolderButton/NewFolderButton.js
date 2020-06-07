@@ -1,9 +1,11 @@
 import styles from './NewFolderButton.scss';
 
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import NewFolder from '../NewFolder';
+import { activateModal } from '../../store/actions/newFolder';
 
 const cx = classNames.bind(styles);
 const icon = (
@@ -12,13 +14,12 @@ const icon = (
   </svg>
 );
 
-const NewFolderButton = ({}) => {
+const NewFolderButton = ({ activateModal }) => {
   return (
-    <div className={cx('NewFolderButton')}>
-      {' '}
+    <button onClick={() => activateModal()} className={cx('NewFolderButton')}>
       <span className={cx('icon')}>{icon}</span>
-      <input className={cx('text-input')} placeholder="Add new task" type="text" />
-    </div>
+      <span className={cx('text')}>Add new folder</span>
+    </button>
   );
 };
 
@@ -28,6 +29,6 @@ NewFolderButton.defaultProps = {};
 
 const mapStateToProps = ({}) => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = { activateModal };
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewFolderButton);

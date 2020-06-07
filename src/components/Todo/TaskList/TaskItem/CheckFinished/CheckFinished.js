@@ -10,7 +10,6 @@ const cx = classNames.bind(styles);
 const checkIcon = (
   <svg
     id="Capa_1"
-    enable-background="new 0 0 515.556 515.556"
     height="512"
     viewBox="0 0 515.556 515.556"
     width="512"

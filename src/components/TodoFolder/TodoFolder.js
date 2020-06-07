@@ -4,7 +4,6 @@ import classNames from 'classnames/bind';
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ListItem from '../ListItem';
 import Button from '../Button/index';
 import Circle from '../Circle/index';
 
@@ -19,24 +18,26 @@ const deleteIcon = (
   </svg>
 );
 
-const TodoFolder = ({ todoFolder }) => {
+const TodoFolder = ({ todoFolder, isActive, onSelect, onRemove }) => {
   const { color, id, name } = todoFolder;
   const [hover, setHover] = useState(false);
 
   return (
     <div
-      className={cx('TodoFolder')}
+      className={cx('TodoFolder', { active: isActive })}
       onMouseEnter={() => setHover(true)}
       onMouseLeave={() => setHover(false)}
     >
-      <button className={cx('btn')}>
+      <button className={cx('btn')} onClick={() => onSelect()}>
         <span className={cx('circle')}>
           <Circle color={color} radius={8} />
         </span>
         <span className={cx('text')}>{name}</span>
       </button>
 
-      <button className={cx('delete-icon', { visible: hover })}>{deleteIcon}</button>
+      <button className={cx('delete-icon', { visible: hover })} onClick={() => onRemove()}>
+        {deleteIcon}
+      </button>
     </div>
   );
 };

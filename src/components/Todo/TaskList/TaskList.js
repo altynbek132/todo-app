@@ -6,16 +6,22 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import TaskItem from './TaskItem';
 import NewTaskButton from '../../NewTaskButton';
+import { toggleFinishTask, removeTask, addTask } from '../../../store/actions/tasks';
 
 const cx = classNames.bind(styles);
 
-const TaskList = ({ children: tasks }) => {
+const TaskList = ({ children: tasks, removeTask, toggleFinishTask, addTask, folderId }) => {
   return (
     <div className={cx('TaskList')}>
       {tasks.map((task) => (
-        <TaskItem key={task.id} task={task} />
+        <TaskItem
+          key={task.id}
+          task={task}
+          toggleTaskFinished={() => toggleFinishTask(task.id)}
+          onRemoveTask={() => removeTask(task.id)}
+        />
       ))}
-      <NewTaskButton />
+      <NewTaskButton onSubmit={(text) => addTask({ text, folderId })} />
     </div>
   );
 };
@@ -26,6 +32,10 @@ TaskList.defaultProps = {};
 
 const mapStateToProps = ({}) => ({});
 
-const mapDispatchToProps = {};
+const mapDispatchToProps = {
+  removeTask,
+  toggleFinishTask,
+  addTask,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(TaskList);

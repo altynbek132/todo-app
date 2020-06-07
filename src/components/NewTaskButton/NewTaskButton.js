@@ -1,12 +1,10 @@
 import styles from './NewTaskButton.scss';
 
 import classNames from 'classnames/bind';
-import React from 'react';
+import React, { useState } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ListItem from '../ListItem';
 import Button from '../Button';
-import Input from '../Input/index';
 
 const cx = classNames.bind(styles);
 
@@ -16,12 +14,27 @@ const icon = (
   </svg>
 );
 
-const NewTaskButton = ({}) => {
+const NewTaskButton = ({ onSubmit }) => {
+  const [inputValue, setInputValue] = useState('');
   return (
-    <div className={cx('NewTaskButton')}>
+    <form
+      className={cx('NewTaskButton')}
+      onSubmit={(evt) => {
+        evt.preventDefault();
+        if (!inputValue.trim()) return;
+        onSubmit(inputValue);
+        setInputValue('');
+      }}
+    >
       <span className={cx('icon')}>{icon}</span>
-      <input className={cx('text-input')} placeholder="Add new task" type="text" />
-    </div>
+      <input
+        className={cx('text-input')}
+        value={inputValue}
+        onChange={({ target: { value } }) => setInputValue(value)}
+        placeholder="Add new task"
+        type="text"
+      />
+    </form>
   );
 };
 
